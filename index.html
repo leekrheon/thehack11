@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8월 2일, THE HACK : PRIVATE PARTY에 초대합니다!</title>
+
+<!-- ===== OG (오픈그래프) 설정 ===== -->
+<meta property="og:title" content="8월 2일, THE HACK : PRIVATE PARTY에 초대합니다!">
+<meta property="og:description" content="THE HACK : PRIVATE PARTY 초대장">
+<meta property="og:image" content="https://YOUR-DOMAIN.com/file.png">
+<meta property="og:url" content="https://YOUR-DOMAIN.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="8월 2일, THE HACK : PRIVATE PARTY에 초대합니다!">
+<meta name="twitter:description" content="THE HACK : PRIVATE PARTY 초대장">
+<meta name="twitter:image" content="https://YOUR-DOMAIN.com/file.png">
+<!-- ============================== -->
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    background: #000;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+  }
+
+  .invite-image {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    opacity: 0;
+    transition: opacity 1.6s ease;
+  }
+
+  .invite-image.show {
+    opacity: 1;
+  }
+</style>
+</head>
+<body>
+
+  <img
+    src="file.png"
+    alt="THE HACK : PRIVATE PARTY 초대장"
+    class="invite-image"
+    id="inviteImg"
+  >
+
+  <script>
+    const img = document.getElementById('inviteImg');
+
+    function fadeIn() {
+      // 다음 프레임에 클래스를 추가해서 트랜지션이 확실히 걸리도록 함
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          img.classList.add('show');
+        });
+      });
+    }
+
+    if (img.complete) {
+      fadeIn();
+    } else {
+      img.addEventListener('load', fadeIn);
+    }
+  </script>
+
+</body>
+</html>
